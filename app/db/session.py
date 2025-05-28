@@ -1,9 +1,14 @@
 # Импорт функций для подключения к базе данных и создания сессий
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
+import os
 
-# URL подключения к базе данных PostgreSQL
-DATABASE_URL = "postgresql+psycopg2://postgres:admin@localhost:5432/library_db"
+# Загрузка переменных окружения из .env
+load_dotenv()
+
+DATABASE_URL = os.getenv("DATABASE_URL")
+
 
 # Создание движка базы данных
 engine = create_engine(DATABASE_URL)
