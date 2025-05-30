@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, CheckConstraint
 from sqlalchemy.orm import validates
-from app.db.base import Base
+from app.db.base_class import Base
 
 
 class Book(Base):

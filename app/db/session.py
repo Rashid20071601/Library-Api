@@ -15,3 +15,12 @@ engine = create_engine(DATABASE_URL)
 
 # Создание фабрики сессий для взаимодействия с базой
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+
+# Зависимость для FastAPI: возвращает подключение к БД и закрывает его после запроса
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
