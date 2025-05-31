@@ -9,6 +9,7 @@ class BookOut(BaseModel):
     publication_year: int | None
     isbn: str | None
     copies: int
+    description: str | None
 
     model_config = {
         "from_attributes": True      # Позволяет Pydantic преобразовывать из ORM-моделей (SQLAlchemy → Pydantic)
@@ -22,6 +23,7 @@ class BookCreate(BaseModel):
     publication_year: int | None = None
     isbn: str | None = None
     copies: int = Field(1, ge=0)  # Минимум 0 экземпляров
+    description: str | None
 
 
 # Схема для обновления книги (все поля необязательны)
@@ -31,3 +33,4 @@ class BookUpdate(BaseModel):
     publication_year: int | None
     isbn: str | None
     copies: int = Field(default=None, ge=0)
+    description: str | None

@@ -12,9 +12,9 @@ from app.models.user import User
 router = APIRouter()
 
 
-# Защищённый эндпоинт: возвращает список всех книг в библиотеке
+# возвращает список всех книг в библиотеке (доступен всем)
 @router.get("/books", response_model=List[BookOut])
-def list_books(db: Session = Depends(get_db), user=Depends(get_current_user)):
+def list_books(db: Session = Depends(get_db)):
 
     # Получаем все книги из базы
     books = db.query(Book).all()

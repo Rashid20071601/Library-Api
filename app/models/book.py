@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, CheckConstraint
+from sqlalchemy import Column, Integer, String, CheckConstraint, Text
 from sqlalchemy.orm import validates
 from app.db.base_class import Base
 
@@ -12,6 +12,7 @@ class Book(Base):
     publication_year = Column(Integer, nullable=True)
     isbn = Column(String, unique=True, nullable=True)
     copies = Column(Integer, default=1, nullable=False)
+    description = Column(Text, nullable=True)  # новое поле
 
     __table_args__ = (
         CheckConstraint("copies >= 0", name="copies_positive"),
