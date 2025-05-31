@@ -6,12 +6,12 @@ REST API для управления библиотекой. Реализова�
 
 ## 🚀 Стек технологий
 
-- Python 3.11
+- Python 3.10
 - FastAPI
 - SQLAlchemy
 - Alembic
 - Pydantic
-- SQLite (или PostgreSQL)
+- PostgreSQL
 - Pytest
 
 ---
